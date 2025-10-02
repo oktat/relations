@@ -2,6 +2,7 @@ import Employee from '../models/employee.js'
 import Rank from '../models/rank.js'
 import Project from '../models/project.js'
 import EmployeeProject from '../models/employeeProject.js'
+import sequelize from "../database/database.js";
 
 const db = {}
 
@@ -19,5 +20,10 @@ db.Employee.belongsToMany(db.Project, {
 db.Project.belongsToMany(db.Employee, { 
     through: db.EmployeeProject
 });
+
+/* { alter: true } vagy { force: true } 
+Csak az egyik kulcs szerepeljen ture 
+vagy false értékkel */
+await sequelize.sync({ alter: false });
 
 export default db

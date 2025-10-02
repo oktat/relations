@@ -5,7 +5,9 @@ import Project from './project.js';
 import EmployeeProject from './employeeProject.js';
 
 const Employee = sequelize.define('employee', {
-    name: { type: DataTypes.STRING } 
+    name: { type: DataTypes.STRING },
+    city: { type: DataTypes.STRING },
+    salary: { type: DataTypes.DECIMAL }
 })
 
 export default Employee

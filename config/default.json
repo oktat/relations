@@ -1,0 +1,13 @@
+{
+    "app": {
+        "port": 8000
+    },
+    "db": {
+        "dialect": "sqlite",
+        "host": "localhost",
+        "name": "empy",
+        "user": "empy",
+        "pass": "titok",
+        "storage": "database.sqlite"
+    }
+}
