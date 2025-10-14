@@ -1,19 +1,17 @@
 import { Sequelize } from 'sequelize';
-import { readFileSync } from 'fs'
+import dotenvFlow from 'dotenv-flow';
 
-const confPath = '../../config/default.json'
-const fileUrl = new URL(confPath, import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+dotenvFlow.config();
 
 const sequelize = new Sequelize(
-    config.db.name,
-    config.db.user,
-    config.db.pass,
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASS,
     {
-        host: config.db.host,
-        dialect: config.db.dialect,
-        dialectOptions: {},
-        storage: config.db.storage
+        host: process.env.DB_HOST,
+        dialect: process.env.DB_DIALECT,
+        storage: process.env.DB_STORAGE,
+        dialectOptions: {}
     }
 );
 

@@ -1,13 +1,11 @@
 import "./models/modrels.js";
 import express from "express";
 import routes from "./routes/api.js";
-import { readFileSync } from 'fs'
+import dotenvFlow from "dotenv-flow";
 
-const confPath = '../config/default.json'
-const fileUrl = new URL(confPath, import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+dotenvFlow.config();
 
-const PORT = config.app.port || 8000
+const PORT = process.env.APP_PORT || 8000
 const app = express();
 
 app.use(express.json());
